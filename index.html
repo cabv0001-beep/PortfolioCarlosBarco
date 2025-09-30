@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<!--
+  index / plantilla HTML del portafolio
+  - Archivo principal que referencia `estilo.css` y `Jvacode.js`.
+  - Mantén la estructura de secciones (inicio, sobremi, skills, curriculum,
+    portfolio, contacto) para que el JS pueda localizar las secciones por id.
+  - Comentarios inline explican cada bloque y cómo añadir/editar proyectos.
+-->
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio Carlos Alberto Barco Viera</title>
+    <!-- Librerías y estilos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <link rel="stylesheet" href="estilo.css">
+    <style>
+      .inicio .contenido-banner h1 {
+        margin-bottom: 20px; /* Puedes ajustar el valor */
+      }
+
+      .inicio .contenido-banner h2 {
+        margin-top: 0; /* Opcional, para evitar doble margen */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ENCABEZADO: logo + navegación principal -->
+    <div class="contenedor-header">
+      <header>
+        <div class="logo">
+          <!-- Enlace principal; cambia el texto si deseas otra marca -->
+          <a href="#">Carlos Alberto Barco Viera</a>
+        </div>
+
+        <!-- Navegación principal. La función `seleccionar()` en JS cierra el menú en móvil -->
+        <nav id="nav">
+          <ul>
+            <li><a href="#inicio" onclick="seleccionar()">INICIO</a></li>
+            <li><a href="#sobremi" onclick="seleccionar()">SOBRE MÍ</a></li>
+            <li><a href="#skills" onclick="seleccionar()">SKILLS</a></li>
+            <li><a href="#curriculum" onclick="seleccionar()">CURRICULUM</a></li>
+            <li><a href="#portfolio" onclick="seleccionar()">PORTFOLIO</a></li>
+            <li><a href="#contacto" onclick="seleccionar()">CONTACTO</a></li>
+          </ul>
+        </nav>
+
+        <!-- Botón de menú responsive: visible en pantallas pequeñas -->
+        <div class="nav-responsive" onclick="mostrarOcultarMenu()">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+      </header>
+    </div>
+
+    <!-- INICIO: Banner principal con imagen y redes -->
+    <section id="inicio" class="inicio">
+      <div class="contenido-banner">
+        <div class="contenedor-img">
+          <img src="Fotoyo.png" alt="Foto de Carlos">
+        </div>
+        <h1>CARLOS A. BARCO VIERA</h1>
+        <h2>Ingeniero Industrial</h2>
+        <div class="redes">
+          <a href="https://www.linkedin.com/in/carlosbbarco">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE MÍ: presentación breve, datos y aficiones -->
+    <section id="sobremi" class="sobremi">
+      <div class="contenido-seccion">
+        <h2>SOBRE MÍ</h2>
+        <p>
+          <span>Hola, soy Carlos.</span> ingeniero industrial con formación
+          integral en el diseño, planeación y gestión de sistemas orientados a
+          la transformación de bienes y servicios. Mi enfoque está en optimizar
+          la productividad y competitividad mediante estrategias en talento
+          humano, logística, materiales, equipos e información, bajo una cultura
+          de mejora continua. Además, tengo conocimientos en programación y
+          manejo de lenguajes como HTML y CSS, así como en análisis de datos
+          para apoyar la toma de decisiones y la gestión eficiente de proyectos.
+          Cuento con capacidad para formular y evaluar proyectos considerando
+          aspectos técnicos, económicos, sociales, ambientales y legales.
+        </p>
+
+        <div class="fila">
+          <!-- Datos personales -->
+          <div class="col">
+            <h3>Datos Personales</h3>
+            <ul>
+              <li>
+                <strong>Email</strong> carlosbv95@hotmail.com
+              </li>
+              <li>
+                <strong>Ubicación</strong> Cali, Colombia
+              </li>
+            </ul>
+          </div>
+
+          <!-- Intereses / hobbies -->
+          <div class="col">
+            <h3>Lo que me gusta</h3>
+            <div class="contenedor-intereses">
+              <div class="interes">
+                <i class="fa-solid fa-gamepad"></i>
+                <span>JUEGOS</span>
+              </div>
+              <div class="interes">
+                <i class="fa-solid fa-headphones"></i>
+                <span>MÚSICA</span>
+              </div>
+              <div class="interes">
+                <i class="fa-solid fa-plane"></i>
+                <span>VIAJAR</span>
+              </div>
+              <div class="interes">
+                <i class="fa-solid fa-book"></i>
+                <span>LECTURA</span>
+              </div>
+              <div class="interes">
+                <i class="fa-solid fa-kitchen-set"></i>
+                <span>COCINAR</span>
+              </div>
+              <div class="interes">
+                <i class="fa-solid fa-camera"></i>
+                <span>FOTOGRAFÍA</span>
+              </div>
+              <div class="interes">
+                <i class="fa-solid fa-film"></i>
+                <span>PELÍCULAS</span>
+              </div>
+              <div class="interes">
+                <i class="fa-solid fa-futbol"></i>
+                <span>DEPORTE</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button>
+          Descargar CV <i class="fa-solid fa-download"></i>
+          <span class="overlay"></span>
+        </button>
+      </div>
+    </section>
+
+    <!-- SKILLS: carruseles de imágenes para habilidades técnicas y blandas -->
+    <section class="skills" id="skills">
+      <div class="contenido-seccion">
+        <h2>SKILLS</h2>
+
+        <!-- Carrusel de habilidades técnicas -->
+
+        <div class="skill-carousel">
+          <h3>Technical Skills</h3>
+          <div class="carousel-track">
+            <!-- bloque original -->
+            <div class="carousel-slide">
+              <img src="1 VSCode.png" alt="HTML">
+              <span class="slide-text">VSCode</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="2 Power Pivot.png" alt="CSS">
+              <span class="slide-text">Power Pivot</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="3 visual basic.png" alt="JavaScript">
+              <span class="slide-text">Macros</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="4 Power Query.png" alt="Python">
+              <span class="slide-text">Power Query</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="5 power apps.png" alt="SQL">
+              <span class="slide-text">Power Apps</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="6 power bi.png" alt="Power BI">
+              <span class="slide-text">Power BI</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="7 oracle.png" alt="Power BI">
+              <span class="slide-text">Oracle</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="8 sap.png" alt="Power BI">
+              <span class="slide-text">SAP</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="9 excel.webp" alt="Power BI">
+              <span class="slide-text">Excel</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="10 r studio.png" alt="Power BI">
+              <span class="slide-text">R estudio</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="11 mi sql.png" alt="Power BI">
+              <span class="slide-text">SQL</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="12 htlm.png" alt="Power BI">
+              <span class="slide-text">Htlm</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="13 javas cript.png" alt="Power BI">
+              <span class="slide-text">Java Script</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="14 css.png" alt="Power BI">
+              <span class="slide-text">Css</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="15 Python.png" alt="Power BI">
+              <span class="slide-text">Python</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="16 automation-Anywhere.webp" alt="Poaawer BI">
+              <span class="slide-text">Automation Anywhere</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="Logo Bizagi.png" alt="Bizagi">
+              <span class="slide-text">Bizagi</span>
+            </div>
+
+            <!-- bloque duplicado -->
+            <div class="carousel-slide">
+              <img src="1 VSCode.png" alt="HTML">
+              <span class="slide-text">VSCode</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="2 Power Pivot.png" alt="CSS">
+              <span class="slide-text">Power Pivot</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="3 visual basic.png" alt="JavaScript">
+              <span class="slide-text">Macros</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="4 Power Query.png" alt="Python">
+              <span class="slide-text">Power Query</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="5 power apps.png" alt="SQL">
+              <span class="slide-text">Power Apps</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="6 power bi.png" alt="Power BI">
+              <span class="slide-text">Power BI</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="7 oracle.png" alt="Power BI">
+              <span class="slide-text">Oracle</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="8 sap.png" alt="Power BI">
+              <span class="slide-text">SAP</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="9 excel.webp" alt="Power BI">
+              <span class="slide-text">Excel</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="10 r studio.png" alt="Power BI">
+              <span class="slide-text">R estudio</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="11 mi sql.png" alt="Power BI">
+              <span class="slide-text">SQL</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="12 htlm.png" alt="Power BI">
+              <span class="slide-text">Htlm</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="13 javas cript.png" alt="Power BI">
+              <span class="slide-text">Java Script</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="14 css.png" alt="Power BI">
+              <span class="slide-text">Css</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="15 Python.png" alt="Power BI">
+              <span class="slide-text">Python</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="16 automation-Anywhere.webp" alt="Poaawer BI">
+              <span class="slide-text">Automation Anywhere</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="Logo Bizagi.png" alt="Bizagi">
+              <span class="slide-text">Bizagi</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Carrusel de habilidades blandas -->
+        <div class="skill-carousel">
+          <h3>Professional Skills</h3>
+          <div class="carousel-track">
+            <!-- bloque original -->
+            <div class="carousel-slide">
+              <img src="1Liderazgo.png" alt="Liderazgo">
+              <span class="slide-text">Liderazgo</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="4asertiva.png" alt="Comunicación asertiva ">
+              <span class="slide-text">Comunicación asertiva</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="8pensamiento.png" alt="Pensamiento analítico">
+              <span class="slide-text">Pensamiento analítico</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="2Adaptabilidad.png" alt="Adaptabilidad">
+              <span class="slide-text">Adaptabilidad</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="3aprendizaje.png" alt="Auto aprendizaje">
+              <span class="slide-text">Auto aprendizaje</span>
+            </div>
+             <div class="carousel-slide">
+              <img src="7orientado.png" alt="Orientado al resultado">
+              <span class="slide-text">Orientado al resultado</span>
+            </div>
+             <div class="carousel-slide">
+              <img src="6mejora.png" alt="Mejora continua">
+              <span class="slide-text">Mejora continua</span>
+            </div>
+             <div class="carousel-slide">
+              <img src="9responsabilidad.png" alt="Responsabilidad">
+              <span class="slide-text">Responsabilidad</span>
+            </div>
+
+            <!-- bloque duplicado -->
+           <div class="carousel-slide">
+              <img src="1Liderazgo.png" alt="Liderazgo">
+              <span class="slide-text">Liderazgo</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="4asertiva.png" alt="Comunicación asertiva ">
+              <span class="slide-text">Comunicación asertiva</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="8pensamiento.png" alt="Pensamiento analítico">
+              <span class="slide-text">Pensamiento analítico</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="2Adaptabilidad.png" alt="Adaptabilidad">
+              <span class="slide-text">Adaptabilidad</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="3aprendizaje.png" alt="Auto aprendizaje">
+              <span class="slide-text">Auto aprendizaje</span>
+            </div>
+             <div class="carousel-slide">
+              <img src="7orientado.png" alt="Orientado al resultado">
+              <span class="slide-text">Orientado al resultado</span>
+            </div>
+             <div class="carousel-slide">
+              <img src="6mejora.png" alt="Mejora continua">
+              <span class="slide-text">Mejora continua</span>
+            </div>
+             <div class="carousel-slide">
+              <img src="9responsabilidad.png" alt="Responsabilidad">
+              <span class="slide-text">Responsabilidad</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- CURRICULUM: experiencia y formación -->
+    <section id="curriculum" class="curriculum">
+      <div class="contenido-seccion">
+        <h2>CURRICULUM</h2>
+        <div class="fila">
+
+          <!-- Columna izquierda: Experiencia laboral -->
+          <div class="col izquierda">
+            <h3>Experiencia</h3>
+
+            <div class="item izq">
+              <h4>Analista de arquitectura empresarial</h4>
+              <span class="casa">Bancoomeva</span>
+              <span class="fecha">2024 - Actualmente</span>
+              <p>
+                Brindar acompañamiento integral en tesorería, parámetros,
+                convenios, Data Lake, contabilidad y conciliaciones dentro de
+                proyectos de transformación digital, planificando y gestionando
+                estrategias de mejora continua, implementando modelos operativos
+                alineados al banco y al Grupo Coomeva, promoviendo eficiencia,
+                cultura lean, robotización, cumplimiento normativo, optimización
+                de procesos, gestión de recursos y análisis de datos mediante
+                herramientas especializadas.
+              </p>
+            </div>
+
+            <div class="item izq">
+              <h4>Analista de planeación de operaciones seccional ciudad</h4>
+              <span class="casa">Grupo recordar</span>
+              <span class="fecha">2021 - 2022</span>
+              <p>
+                Realizar análisis financiero (PYG) y seguimiento de KPIs para
+                optimizar procesos, coordinar logística de órdenes y traslados
+                de insumos, ajustar capacidades y metas, registrar costos en
+                SAP, auditar inventarios y elaborar informes gerenciales que
+                respalden la toma de decisiones y la eficiencia operativa.
+              </p>
+            </div>
+
+            <div class="item izq">
+              <h4>Coordinador de procesos productivos</h4>
+              <span class="casa">Cargill proteína Latinoamérica - pollos el bucanero</span>
+              <span class="fecha">2019 - 2021</span>
+              <p>
+                Estandarizar y supervisar procesos productivos asegurando
+                eficiencia y calidad, gestionar inventarios y abastecimiento,
+                implementar mejoras continuas mediante análisis de datos y Lean
+                Manufacturing, coordinar capacitaciones y logística operativa,
+                y generar informes gerenciales con KPIs y controles para
+                optimizar la producción y minimizar reprocesos.
+              </p>
+            </div>
+
+            <div class="item izq">
+              <h4>Prácticas profesionales</h4>
+              <span class="casa">Cargill proteína Latinoamérica - pollos el bucanero</span>
+              <span class="fecha">2019 - 2019</span>
+              <p>
+                Participar en la estandarización de procesos productivos mediante
+                el diseño de manuales, seguimiento de KPIs y aplicación de
+                herramientas Lean Manufacturing para mejorar la eficiencia y
+                reducir desperdicios.
+              </p>
+            </div>
+          </div>
+
+          <!-- Columna derecha: Educación -->
+          <div class="col derecha">
+            <h3>Educación</h3>
+            <!-- Formación Académica Principal -->
+            <div class="item der">
+              <h4>Ingeniero Industrial</h4>
+              <span class="casa">Universidad de Ibagué</span>
+              <span class="fecha">2014 - 2019</span>
+            </div>
+
+            <div class="item der">
+              <h4>Máster en Ingeniería del Transporte y Logística</h4>
+              <span class="casa">Universidad de Jaén (España)</span>
+              <span class="fecha">2022 - 2023</span>
+            </div>
+
+            <!-- Diplomados y Especializaciones -->
+            <div class="item der">
+              <h4>Diplomado en Herramientas Técnicas y Administrativas para el Mejoramiento de la Productividad</h4>
+              <span class="casa">Pontificia Universidad Javeriana</span>
+              <span class="fecha">2020 - 2020</span>
+            </div>
+
+            <!-- Certificaciones y Cursos Clave -->
+            <div class="item der">
+              <h4>Excel Black Belt, Power BI Black Belt y Macros Black Belt</h4>
+              <span class="casa">A2 México</span>
+              <span class="fecha">2024 - 2024</span>
+            </div>
+
+            <div class="item der">
+              <h4>Lean Six Sigma White Belt</h4>
+              <span class="casa">Grupo Coomeva</span>
+              <span class="fecha">2024 - 2024</span>
+            </div>
+
+            <div class="item der">
+              <h4>Python for Data Science</h4>
+              <span class="casa">Cognitive Class (IBM)</span>
+              <span class="fecha">2023 - 2023</span>
+            </div>
+
+            <div class="item der">
+              <h4>Automation Anywhere de Cero a Intermedio</h4>
+              <span class="casa">Udemy</span>
+              <span class="fecha">2025 - 2025</span>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO: galería de proyectos (matriz 3 x n) -->
+    <section id="portfolio" class="portfolio">
+      <div class="contenido-seccion">
+        <h2>PORTFOLIO</h2>
+
+        <!-- Galería en grid 3 filas x n columnas; cada .proyecto es una celda -->
+        <div class="galeria">
+          <!-- Repite/duplica este bloque .proyecto para añadir más proyectos -->
+
+          <div class="proyecto">
+            <div class="project-carousel" data-autoplay-interval="2500">
+              <div class="slides">
+                <div class="slide">
+                  <img src="p1.jpeg" alt="Proyecto A - foto 1">
+                  <div class="overlay">
+                    <h3>Proyecto A</h3>
+                  </div>
+                </div>
+                <div class="slide">
+                  <img src="p1-2.jpeg" alt="Proyecto A - foto 2">
+                  <div class="overlay">
+                    <h3>Proyecto A</h3>
+                  </div>
+                </div>
+                <div class="slide">
+                  <img src="p1-3.jpeg" alt="Proyecto A - foto 3">
+                  <div class="overlay">
+                    <h3>Proyecto A</h3>
+                  </div>
+                </div>
+                <div class="slide">
+                  <img src="p1-4.jpeg" alt="Proyecto A - foto 4">
+                  <div class="overlay">
+                    <h3>Proyecto A</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-indicators"></div>
+            </div>
+            <div class="overlay"><h3>App de Gestión de la Demanda</h3><p>Solución en Power Apps que digitaliza el registro y control de solicitudes, mejorando la eficiencia del proceso.</p></div>
+          </div>
+
+          <div class="proyecto">
+            <div class="project-carousel" data-autoplay-interval="3000">
+              <div class="slides">
+                <div class="slide">
+                  <img src="p2.jpeg" alt="Proyecto B - foto 1">
+                  <div class="overlay">
+                    <h3>Proyecto B</h3>
+                  </div>
+                </div>
+                <div class="slide">
+                  <img src="p2-2.jpeg" alt="Proyecto B - foto 1">
+                  <div class="overlay">
+                    <h3>Proyecto B</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-indicators"></div>
+            </div>
+            <div class="overlay"><h3>Dashboard en Excel</h3><p>Panel dinámico en Excel que transforma datos en información clave para decisiones rápidas y acertadas.</p></div>
+          </div>
+
+          <div class="proyecto">
+            <div class="project-carousel" data-autoplay-interval="3500">
+              <div class="slides">
+                <div class="slide">
+                  <img src="p3.jpeg" alt="Proyecto C - foto 1">
+                  <div class="overlay">
+                    <h3>Proyecto C</h3>
+                  </div>
+                </div>
+                <div class="slide">
+                  <img src="p3-2.JPeG" alt="Proyecto C - foto 2">
+                  <div class="overlay">
+                    <h3>Proyecto C</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-indicators"></div>
+            </div>
+            <div class="overlay"><h3>Dashboard en Power BI</h3><p>Visualización interactiva en Power BI que facilita el análisis estratégico y el control de indicadores.</p></div>
+          </div>
+
+          <div class="proyecto">
+            <div class="project-carousel" data-autoplay-interval="3500">
+              <div class="slides">
+                <div class="slide">
+                  <img src="p4.jpeg" alt="Proyecto C - foto 1">
+                  <div class="overlay">
+                    <h3>Proyecto D</h3>
+                  </div>
+                </div>
+                <div class="slide">
+                  <img src="p4-2.JPeG" alt="Proyecto C - foto 2">
+                  <div class="overlay">
+                    <h3>Proyecto D</h3>
+                  </div>
+                </div>
+                <div class="slide">
+                  <img src="p4-3.jpeg" alt="Proyecto C - foto 2">
+                  <div class="overlay">
+                    <h3>Proyecto D</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-indicators"></div>
+            </div>
+            <div class="overlay"><h3>Macro en Visual Basic</h3><p>Automatización en Visual Basic que organiza y prepara información lista para reportes e impresión.</p></div>
+          </div>
+
+          <div class="proyecto">
+            <div class="project-carousel" data-autoplay-interval="3500">
+              <div class="slides">
+                <div class="slide">
+                  <img src="p5.jpeg" alt="Proyecto C - foto 1">
+                  <div class="overlay">
+                    <h3>Proyecto E</h3>
+                  </div>
+                </div>
+                <div class="slide">
+                  <img src="p5-2.JPeG" alt="Proyecto C - foto 2">
+                  <div class="overlay">
+                    <h3>Proyecto E</h3>
+                  </div>
+                </div>
+                <div class="slide">
+                  <img src="p5-3.jpeg" alt="Proyecto C - foto 2">
+                  <div class="overlay">
+                    <h3>Proyecto E</h3>
+                  </div>
+                </div>
+                <div class="slide">
+                  <img src="p5-4.jpeg" alt="Proyecto C - foto 2">
+                  <div class="overlay">
+                    <h3>Proyecto E</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-indicators"></div>
+            </div>
+            <div class="overlay"><h3>Bot en Automation Anywhere</h3><p>Robot inteligente que integra Excel con la web, localizando datos y devolviendo resultados en tablas claras.</p></div>
+          </div>
+          <!-- ... proyectos adicionales (p4, p5, p6, etc.) ... -->
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO: formulario y datos -->
+    <section id="contacto" class="contacto">
+      <div class="contenido-seccion">
+        <h2>CONTACTO</h2>
+        <div class="fila">
+          <div class="col">
+            <input type="text" placeholder="Tu Nombre">
+            <input type="text" placeholder="Número telefónico">
+            <input type="text" placeholder="Correo electrónico">
+            <input type="text" placeholder="Asunto">
+            <textarea cols="30" rows="10" placeholder="Mensaje"></textarea>
+            <button>
+              Enviar Mensaje <i class="fa-solid fa-paper-plane"></i>
+              <span class="overlay"></span>
+            </button>
+          </div>
+          <div class="col">
+            <img src="ubicacion.png" alt="Mapa / ubicación">
+            <div class="info">
+              <ul>
+                <li>
+                  <i class="fa-solid fa-envelope"></i>
+                  <strong>Email:</strong> carlosbv95@hotmail.com
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER: enlace arriba y redes -->
+    <footer>
+      <a href="#inicio" class="arriba">
+        <i class="fa-solid fa-angles-up"></i>
+      </a>
+      <div class="redes">
+        <a href="https://www.linkedin.com/in/carlosbbarco">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+      </div>
+      <p>&copy; 2025 Carlos A Barco Viera. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Script de interacción: menu, skills, carousels -->
+    <script src="Jvacode.js"></script>
+  </body>
+
+</html>
